@@ -2,17 +2,27 @@
 <form [formGroup]="formGroup">
   <!-- input -->
   <mat-form-field class="w-100" floatLabel="auto" appearance="standard" color="primary">
-    <input type="email" matInput placeholder="Enter Customer Email" required="required" formControlName="email" />
+    <input type="email" matInput placeholder="Enter Customer Email" formControlName="email" />
     <mat-label>Email</mat-label>
     <mat-hint align="end">Up to 30 characters</mat-hint>
     <mat-icon matPrefix>email</mat-icon>
+
+    <mat-error *ngIf="getFormControl('email').hasError('required')" [innerHTML]="getErrorMessage('email', 'required')"></mat-error>
+
+    <mat-error *ngIf="getFormControl('email').hasError('email')" [innerHTML]="getErrorMessage('email', 'email')"></mat-error>
   </mat-form-field>
 
   <mat-form-field class="w-100" floatLabel="auto" appearance="standard" color="primary">
-    <input type="text" matInput placeholder="Enter Customer Name" required="required" formControlName="customerName" />
+    <input type="text" matInput placeholder="Enter Customer Name" formControlName="customerName" />
     <mat-label>Customer Name</mat-label>
     <mat-hint align="end">Up to 30 characters</mat-hint>
     <mat-icon matPrefix>person</mat-icon>
+
+    <mat-error *ngIf="getFormControl('customerName').hasError('required')" [innerHTML]="getErrorMessage('customerName', 'required')"></mat-error>
+
+    <mat-error *ngIf="getFormControl('customerName').hasError('pattern')" [innerHTML]="getErrorMessage('customerName', 'pattern')"></mat-error>
+
+    <mat-error *ngIf="getFormControl('customerName').hasError('maxlength')" [innerHTML]="getErrorMessage('customerName', 'maxlength')"></mat-error>
   </mat-form-field>
 
   <!-- floatLabel: auto | always | never -->
@@ -41,16 +51,18 @@
   <mat-icon matPrefix>place</mat-icon>
 </mat-form-field> -->
 
-  <!-- <mat-form-field class="w-100" floatLabel="auto" appearance="standard" color="primary">
-  <mat-select required="required" formControlName="country">
-    <mat-option *ngFor="let country of countries" [value]="country.id">{{country.countryName}}</mat-option>
-  </mat-select>
-  <mat-label>Country</mat-label>
-  <mat-hint align="end">Choose a country</mat-hint>
-  <mat-icon matPrefix>place</mat-icon>
-</mat-form-field> -->
-
   <mat-form-field class="w-100" floatLabel="auto" appearance="standard" color="primary">
+    <mat-select formControlName="country">
+        <mat-option *ngFor="let country of countries" [value]="country.id">{{country.countryName}}</mat-option>
+    </mat-select>
+    <mat-label>Country</mat-label>
+    <mat-hint align="end">Choose a country</mat-hint>
+    <mat-icon matPrefix>place</mat-icon>
+
+    <mat-error *ngIf="getFormControl('country').hasError('required')" [innerHTML]="getErrorMessage('country', 'required')"></mat-error>
+  </mat-form-field> 
+
+  <!-- <mat-form-field class="w-100" floatLabel="auto" appearance="standard" color="primary">
     <mat-select required="required" formControlName="country">
       <mat-optgroup label="A">
         <mat-option value="Afghanistan">Afghanistan</mat-option>
@@ -86,7 +98,7 @@
     <mat-label>Country</mat-label>
     <mat-hint align="end">Choose a country</mat-hint>
     <mat-icon matPrefix>place</mat-icon>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <!-- Basic Button -->
   <!-- <div class="mb">
@@ -123,9 +135,9 @@
     <button mat-stroked-button color="warn" class="mr">Delete</button>
   </div>
 
-  <div>
+  <!-- <div>
     {{formGroup.value | json}}
-  </div>
+  </div> -->
 
   <!-- disableRipple -->
   <!-- <div class="mb">
