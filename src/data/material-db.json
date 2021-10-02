@@ -1,0 +1,204 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "countryName": "Afghanistan"
+    },
+    {
+      "id": 2,
+      "countryName": "Australia"
+    },
+    {
+      "id": 3,
+      "countryName": "Egypt"
+    },
+    {
+      "id": 4,
+      "countryName": "Ethiopia"
+    },
+    {
+      "id": 5,
+      "countryName": "Georgia"
+    },
+    {
+      "id": 6,
+      "countryName": "Germany"
+    },
+    {
+      "id": 7,
+      "countryName": "Finland"
+    },
+    {
+      "id": 8,
+      "countryName": "France"
+    },
+    {
+      "id": 9,
+      "countryName": "India"
+    },
+    {
+      "id": 10,
+      "countryName": "Iraq"
+    },
+    {
+      "id": 11,
+      "countryName": "Italy"
+    },
+    {
+      "id": 12,
+      "countryName": "United Kingdom"
+    },
+    {
+      "id": 13,
+      "countryName": "United States"
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "cityName": "Abu Dhabi"
+    },
+    {
+      "id": 2,
+      "cityName": "Amsterdam"
+    },
+    {
+      "id": 3,
+      "cityName": "Berlin"
+    },
+    {
+      "id": 4,
+      "cityName": "Chicago"
+    },
+    {
+      "id": 5,
+      "cityName": "Doha"
+    },
+    {
+      "id": 6,
+      "cityName": "Dubai"
+    },
+    {
+      "id": 7,
+      "cityName": "Istanbul"
+    },
+    {
+      "id": 8,
+      "cityName": "Las Vegas"
+    },
+    {
+      "id": 9,
+      "cityName": "London"
+    },
+    {
+      "id": 10,
+      "cityName": "Los Angeles"
+    },
+    {
+      "id": 11,
+      "cityName": "Moscow"
+    },
+    {
+      "id": 12,
+      "cityName": "Mumbai"
+    },
+    {
+      "id": 13,
+      "cityName": "New York"
+    },
+    {
+      "id": 14,
+      "cityName": "Paris"
+    },
+    {
+      "id": 15,
+      "cityName": "San Francisco"
+    },
+    {
+      "id": 16,
+      "cityName": "Seoul"
+    },
+    {
+      "id": 17,
+      "cityName": "Singapore"
+    },
+    {
+      "id": 18,
+      "cityName": "Sydney"
+    },
+    {
+      "id": 19,
+      "cityName": "Tokyo"
+    },
+    {
+      "id": 20,
+      "cityName": "Toronto"
+    },
+    {
+      "id": 21,
+      "cityName": "Washington"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "customerName": "Smith",
+      "location": "Darjeeling",
+      "date": "2025-03-05"
+    },
+    {
+      "id": 2,
+      "customerName": "John",
+      "location": "Mumbai",
+      "date": "2021-08-01"
+    },
+    {
+      "id": 3,
+      "customerName": "Allen",
+      "location": "San Francisco",
+      "date": "2030-09-16"
+    },
+    {
+      "id": 4,
+      "customerName": "Jones",
+      "location": "Tokyo",
+      "date": "2025-01-18"
+    },
+    {
+      "id": 5,
+      "customerName": "Lara",
+      "location": "Sydney",
+      "date": "2026-12-24"
+    },
+    {
+      "id": 6,
+      "customerName": "Lucy",
+      "location": "Los Angels",
+      "date": "2023-07-12"
+    },
+    {
+      "id": 7,
+      "customerName": "Mason",
+      "location": "Bangalore",
+      "date": "2021-06-14"
+    },
+    {
+      "id": 8,
+      "customerName": "Lucas",
+      "location": "Los Angels",
+      "date": "2022-12-02"
+    },
+    {
+      "id": 9,
+      "customerName": "Benjamin",
+      "location": "Mumbai",
+      "date": "2027-06-06"
+    },
+    {
+      "id": 10,
+      "customerName": "William",
+      "location": "San francisco",
+      "date": "2028-04-19"
+    }
+  ]
+}
