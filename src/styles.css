@@ -60,12 +60,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mb
 {
-  margin-bottom: 6px !important;
+  margin-bottom: 10px !important;
 }
 
 .mt
 {
-  margin-top: 6px !important;
+  margin-top: 10px !important;
 }
 
 .w-100
