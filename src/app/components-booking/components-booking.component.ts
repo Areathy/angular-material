@@ -14,12 +14,35 @@ export class ComponentsBookingComponent implements OnInit {
   countries: any;
   formGroup: FormGroup | any = null;
   customErrorStateMatcher: CustomErrorStateMatcher = new CustomErrorStateMatcher();
+  cities: any[] = [
+    { id: 1, cityName: "Abu Dhabi" },
+    { id: 2, cityName: "Amsterdam" },
+    { id: 3, cityName: "Berlin" },
+    { id: 4, cityName: "Chicago" },
+    { id: 5, cityName: "Doha" },
+    { id: 6, cityName: "Dubai" },
+    { id: 7, cityName: "Istanbul" },
+    { id: 8, cityName: "Las Vegas" },
+    { id: 9, cityName: "London" },
+    { id: 10, cityName: "Los Angeles" },
+    { id: 11, cityName: "Moscow" },
+    { id: 12, cityName: "New York" },
+    { id: 13, cityName: "Paris" },
+    { id: 14, cityName: "San Francisco" },
+    { id: 15, cityName: "Seoul" },
+    { id: 16, cityName: "Singapore" },
+    { id: 17, cityName: "Sydney" },
+    { id: 18, cityName: "Tokyo" },
+    { id: 19, cityName: "Toronto" },
+    { id: 20, cityName: "Washington" }
+  ];
 
   constructor(private countriesService: CountriesService) {
     this.formGroup = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       customerName: new FormControl(null, [Validators.required, Validators.maxLength(30), Validators.pattern('^[A-Za-z. ]*$')]),
-      country: new FormControl(null, [Validators.required])
+      country: new FormControl(null, [Validators.required]),
+      city: new FormControl(null)
     });
   }
 
