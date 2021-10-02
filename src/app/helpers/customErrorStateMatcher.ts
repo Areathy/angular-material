@@ -5,6 +5,6 @@ export class CustomErrorStateMatcher implements ErrorStateMatcher
 {
   isErrorState(control: FormControl | null, form: FormGroupDirective | null)
   {
-    return control.invalid && control.dirty;
+    return form && control && control.invalid && (control.dirty || control.touched || form.submitted);
   }
 }
