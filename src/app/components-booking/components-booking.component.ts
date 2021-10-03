@@ -4,6 +4,7 @@ import { CountriesService } from '../services/countries.service';
 import { CustomErrorStateMatcher } from "../helpers/customErrorStateMatcher";
 import { City } from '../models/City';
 import { CitiesService } from '../services/cities.service';
+import { debounceTime, tap, switchMap } from "rxjs/operators";
 
 @Component({
   selector: 'app-components-booking',
@@ -37,13 +38,29 @@ export class ComponentsBookingComponent implements OnInit {
         console.log(error);
       }); 
 
-      this.citiesService.getCities().subscribe(
-        (response) => {
-          this.cities = response;
-        },
-        (error) => {
-          console.log(error);
-        });
+      //ngOnInit
+    this.getFormControl("city").valueChanges.pipe(
+
+      //debounceTime: wait for at least 500 milliseconds, after typing in textbox
+      debounceTime(500),
+
+      //tap: do something before making http request
+      tap(() =>
+      {
+        this.cities = [];
+        this.isCitiesLoading = true;
+      }),
+
+      //switchMap
+      switchMap((value) => {
+        return this.citiesService.getCities(value);
+      })
+    )
+    .subscribe((response) =>
+    {
+      this.cities = response;
+      this.isCitiesLoading = false;
+    });
   }
 
   //returns the form control instance based on the control name
