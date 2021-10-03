@@ -52,6 +52,20 @@
     <mat-checkbox color="primary" formControlName="receiveNewsLetters">Receive News Letters</mat-checkbox>
   </div>
 
+  <div class="ml mt mb">
+    <mat-label>Hobbies:</mat-label>
+
+    <div>
+      <mat-checkbox formControlName="allHobbies" (change)="onAllHobbiesCheckBoxChange()" [indeterminate]="!allHobbiesSelected() && !noHobbiesSelected()">All</mat-checkbox>
+    </div>
+
+    <div formArrayName="hobbies">
+      <div *ngFor="let hobby of hobbiesFormArray.controls; let i = index">
+        <mat-checkbox [formControl]="hobby" color="primary" (change)="onHobbyChange(i)">{{hobbies[i].hobbyName}}</mat-checkbox>
+      </div>
+    </div>
+  </div>
+
   <!-- Stroked Buttons -->
   <div class="mb mt">
     <button mat-stroked-button color="primary" class="mr">Save</button>
