@@ -25,7 +25,8 @@ export class ComponentsBookingComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       customerName: new FormControl(null, [Validators.required, Validators.maxLength(30), Validators.pattern('^[A-Za-z. ]*$')]),
       country: new FormControl(null, [Validators.required]),
-      city: new FormControl(null)
+      city: new FormControl(null),
+      receiveNewsLetters: new FormControl(null)
     });
   }
 
