@@ -66,6 +66,16 @@
     </div>
   </div>
 
+  <div class="ml mt mb">
+    <mat-radio-group formControlName="gender">
+      <mat-label class="mr">Gender:</mat-label>
+      <mat-radio-button value="male" class="mr">Male</mat-radio-button>
+      <mat-radio-button value="female" class="mr">Female</mat-radio-button>
+      <mat-radio-button value="others" class="mr">Others</mat-radio-button>
+      <mat-error *ngIf="getFormControl('gender').hasError('required') && getFormControl('gender').touched" [innerHTML]="getErrorMessage('gender', 'required')"></mat-error>
+    </mat-radio-group>
+  </div>
+
   <!-- Stroked Buttons -->
   <div class="mb mt">
     <button mat-stroked-button color="primary" class="mr">Save</button>
