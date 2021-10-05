@@ -35,7 +35,6 @@ export class ComponentsBookingComponent implements OnInit {
   dateHint: string = "Choose date of birth";
   startDate: Date = new Date("2002-01-01");
 
-  
   constructor(private countriesService: CountriesService, private citiesService: CitiesService) {
     this.formGroup = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
