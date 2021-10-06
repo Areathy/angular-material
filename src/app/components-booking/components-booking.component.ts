@@ -35,6 +35,20 @@ export class ComponentsBookingComponent implements OnInit {
   dateHint: string = "Choose date of birth";
   startDate: Date = new Date("2002-01-01");
 
+  dateFilter(date:any) {
+    return date && date.getDay() !== 0 && date.getDay() !== 6;
+  }
+
+  onDateChange() {
+    if (this.formGroup.value.dateOfBirth) {
+      let date = new Date(this.formGroup.value.dateOfBirth);
+      this.dateHint = `You born on ${date.toString().substr(0, date.toString().indexOf(" "))}`;
+    }
+    else {
+      this.dateHint = "Choose date of birth";
+    }
+  }
+
   constructor(private countriesService: CountriesService, private citiesService: CitiesService) {
     this.formGroup = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
