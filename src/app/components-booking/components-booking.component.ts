@@ -183,4 +183,13 @@ export class ComponentsBookingComponent implements OnInit {
     }
   }
 
+  //When the user clicks on OK chip
+  onOKClick() {
+    console.log("OK chip clicked");
+  }
+
+  onCancelClick() {
+    console.log("OK chip cancel")
+  }
+
 }

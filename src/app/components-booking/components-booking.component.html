@@ -154,6 +154,13 @@
     </div>
 
     <div>
+        <mat-chip-list>
+          <mat-chip color="primary" selected (click)="onOKClick()">OK</mat-chip>
+          <mat-chip color="warn" selected (click)="onCancelClick()">Cancel</mat-chip>
+        </mat-chip-list>
+    </div>    
+
+    <div>
         {{formGroup.value | json}}
     </div>
 
