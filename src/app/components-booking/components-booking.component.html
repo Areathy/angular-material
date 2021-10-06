@@ -118,6 +118,18 @@
                 <mat-hint align="end">{{dateHint}}</mat-hint>
                 <mat-icon matPrefix>calendar_today</mat-icon>
             </mat-form-field>
+
+            <mat-form-field class="w-100" color="primary">
+                <mat-label>Period of Study:</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate type="text" matInput formControlName="studyPeriodStart" />
+                  <input matEndDate type="text" matInput formControlName="studyPeriodEnd" />
+                </mat-date-range-input>
+        
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
         </div>
     </div>
 
