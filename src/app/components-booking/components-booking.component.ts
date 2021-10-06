@@ -62,6 +62,7 @@ export class ComponentsBookingComponent implements OnInit {
       dateOfBirth: new FormControl(null),
       studyPeriodStart: new FormControl(null),
       studyPeriodEnd: new FormControl(null),
+      expertiseLevel: new FormControl(null)
     });
 
     //add form controls to form array
