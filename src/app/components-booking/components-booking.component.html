@@ -131,19 +131,37 @@
                 <mat-date-range-picker #picker></mat-date-range-picker>
               </mat-form-field>
 
-              <!-- button toggle -->
+            <!-- chips -->
             <div class="mb mt">
-                <mat-label>Expertise Level:</mat-label>
-                <mat-button-toggle-group formControlName="expertiseLevel">
-                <mat-button-toggle value="Beginner">Beginner</mat-button-toggle>
-                <mat-button-toggle value="Intermediate">Intermediate</mat-button-toggle>
-                <mat-button-toggle value="Senior">Senior</mat-button-toggle>
-                <mat-button-toggle value="Professional">Professional</mat-button-toggle>
-                <mat-button-toggle value="Expert">Expert</mat-button-toggle>
-                </mat-button-toggle-group>
+                <div>
+                <mat-label>Banks:</mat-label>
+                </div>
+                <mat-chip-list>
+                <mat-chip color="accent" selectable [selected]="All" (click)="AllCountriesClicked()">All Countries</mat-chip>
+
+                <mat-chip color="accent" selectable [selected]="UK" (click)="UKClicked()">UK</mat-chip>
+
+                <mat-chip color="accent" selectable [selected]="USA" (click)="USAClicked()">USA</mat-chip>
+                </mat-chip-list>
+
+                <ul>
+                <li *ngFor="let bank of banks">{{bank.bankName}}, &nbsp;<small class="grey">{{bank.countryName}}</small></li>
+                </ul>
             </div>
 
         </div>
+    </div>
+
+    <!-- button toggle -->
+    <div class="mb mt">
+        <mat-label>Expertise Level:</mat-label>
+        <mat-button-toggle-group formControlName="expertiseLevel">
+        <mat-button-toggle value="Beginner">Beginner</mat-button-toggle>
+        <mat-button-toggle value="Intermediate">Intermediate</mat-button-toggle>
+        <mat-button-toggle value="Senior">Senior</mat-button-toggle>
+        <mat-button-toggle value="Professional">Professional</mat-button-toggle>
+        <mat-button-toggle value="Expert">Expert</mat-button-toggle>
+        </mat-button-toggle-group>
     </div>
 
     <!-- Stroked Buttons -->
