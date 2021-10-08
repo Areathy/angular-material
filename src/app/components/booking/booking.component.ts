@@ -14,7 +14,7 @@ import { Fruit } from 'src/app/models/Fruit';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
-export class ComponentsBookingComponent implements OnInit {
+export class BookingComponent implements OnInit {
 
   //property
   countries: any;
