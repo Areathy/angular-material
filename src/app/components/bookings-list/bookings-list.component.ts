@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatTableDataSource } from "@angular/material/table";
 import { Booking } from "../../models/booking";
 import { BookingsService } from "../../services/bookings.service";
 
@@ -10,15 +10,15 @@ import { BookingsService } from "../../services/bookings.service";
 })
 export class BookingsListComponent implements OnInit {
   //properties
-  bookings: Booking[] = [];
+  bookings: MatTableDataSource<Booking> = null;
   columnsToDisplay: string[] = ['customerName', 'location', 'date', 'actions'];
 
   constructor(private bookingsService: BookingsService) { }
 
   ngOnInit(): void {
     this.bookingsService.getBookings().subscribe(
-      (response: Booking[]) => {
-        this.bookings = response;
+      (response: Booking[]) => { 
+        this.bookings = new MatTableDataSource<Booking>(response);
       },
       (error) => {
         console.log(error);
