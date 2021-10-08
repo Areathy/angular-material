@@ -16,6 +16,10 @@ export class BookingsListComponent implements OnInit {
   columnsToDisplay: string[] = ['customerName', 'location', 'date', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  rows: Booking[] = [];
+  isLoadingCompleted: boolean = false;
+  bookingLoadingStatus: string = "Loading...";
+  isError: boolean = false;
 
   constructor(private bookingsService: BookingsService) { }
 
@@ -30,9 +34,17 @@ export class BookingsListComponent implements OnInit {
 
         //sort
         this.bookings.sort = this.sort; 
+
+        //rows
+        this.rows = response;
+
+        //isLoadingCompleted is true
+        this.isLoadingCompleted = true;
       },
       (error) => {
         console.log(error);
+        this.bookingLoadingStatus = "Error fetching the data";
+        this.isError = true;
       }
     );
   }
