@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from "@angular/material/table";
@@ -20,8 +21,13 @@ export class BookingsListComponent implements OnInit {
   isLoadingCompleted: boolean = false;
   bookingLoadingStatus: string = "Loading...";
   isError: boolean = false;
+  formGroup: FormGroup;
 
-  constructor(private bookingsService: BookingsService) { }
+  constructor(private bookingsService: BookingsService) { 
+    this.formGroup = new FormGroup({
+      search: new FormControl(null)
+    });
+  }
 
   ngOnInit(): void {
     this.bookingsService.getBookings().subscribe(
@@ -40,6 +46,21 @@ export class BookingsListComponent implements OnInit {
 
         //isLoadingCompleted is true
         this.isLoadingCompleted = true;
+
+        //filterPredicate
+        this.bookings.filterPredicate = (data, filter) => {
+          let data2 = { ...data };
+          if (filter) {
+            filter = filter.toLowerCase();
+          }
+          if (data2.customerName) {
+            data2.customerName = data2.customerName.toLowerCase();
+          }
+          if (data2.location) {
+            data2.location = data2.location.toLowerCase();
+          }
+          return data2.customerName.indexOf(filter) != -1 || data2.location.indexOf(filter) != -1;
+        };
       },
       (error) => {
         console.log(error);
@@ -47,5 +68,16 @@ export class BookingsListComponent implements OnInit {
         this.isError = true;
       }
     );
+  }
+
+  filterBookings() {
+    if (this.formGroup.value.search != null && this.bookings) {
+      this.bookings.filter = this.formGroup.value.search.trim();
+    }
+  }
+
+  clearFilter() {
+    this.formGroup.patchValue({ search: "" });
+    this.filterBookings();
   }
 }

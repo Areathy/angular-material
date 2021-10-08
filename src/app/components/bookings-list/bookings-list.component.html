@@ -1,5 +1,13 @@
 <h2>Bookings List</h2>
-<form>
+<form [formGroup]="formGroup">
+
+    <mat-form-field appearance="fill" class="w-100" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input type="search" matInput formControlName="search" (keyup)="filterBookings()" />
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-icon matSuffix class="hand-icon" (click)="clearFilter()">close</mat-icon>
+    </mat-form-field>
+    
   <div class="table-container">
     <table mat-table [dataSource]="bookings" class="w-100" matSort>
 
