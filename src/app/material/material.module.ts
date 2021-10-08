@@ -12,7 +12,9 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatChipsModule } from "@angular/material/chips";
 
+//table
 import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 const MaterialComponents = [
   MatButtonModule,
@@ -27,7 +29,8 @@ const MaterialComponents = [
   MatNativeDateModule,
   MatButtonToggleModule,
   MatChipsModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule
 ];
 
 @NgModule({

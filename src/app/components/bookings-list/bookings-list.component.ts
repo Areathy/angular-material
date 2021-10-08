@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from "@angular/material/table";
 import { Booking } from "../../models/booking";
 import { BookingsService } from "../../services/bookings.service";
@@ -12,6 +13,7 @@ export class BookingsListComponent implements OnInit {
   //properties
   bookings: MatTableDataSource<Booking> = null;
   columnsToDisplay: string[] = ['customerName', 'location', 'date', 'actions'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private bookingsService: BookingsService) { }
 
@@ -19,6 +21,8 @@ export class BookingsListComponent implements OnInit {
     this.bookingsService.getBookings().subscribe(
       (response: Booking[]) => { 
         this.bookings = new MatTableDataSource<Booking>(response);
+
+        this.bookings.paginator = this.paginator;
       },
       (error) => {
         console.log(error);

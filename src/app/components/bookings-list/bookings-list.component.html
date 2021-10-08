@@ -38,4 +38,8 @@
       <tr mat-row *matRowDef="let booking; columns: columnsToDisplay"></tr>
     </table>
   </div>
+
+  <div>
+    <mat-paginator [pageSize]="4" [pageSizeOptions]="[ 4, 8, 12, 16, 20]" showFirstLastButtons></mat-paginator>
+  </div>
 </form>
