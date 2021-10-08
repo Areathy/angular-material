@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
-import { CountriesService } from '../services/countries.service';
-import { CustomErrorStateMatcher } from "../helpers/customErrorStateMatcher";
-import { City } from '../models/City';
-import { CitiesService } from '../services/cities.service';
+import { CountriesService } from '../../services/countries.service';
+import { CustomErrorStateMatcher } from "../../helpers/customErrorStateMatcher";
+import { City } from '../../models/City';
+import { CitiesService } from '../../services/cities.service';
 import { debounceTime, tap, switchMap } from "rxjs/operators";
 
 @Component({
   selector: 'app-components-booking',
-  templateUrl: './components-booking.component.html',
-  styleUrls: ['./components-booking.component.css']
+  templateUrl: './booking.component.html',
+  styleUrls: ['./booking.component.css']
 })
 export class ComponentsBookingComponent implements OnInit {
 
@@ -72,6 +72,7 @@ export class ComponentsBookingComponent implements OnInit {
 
     //chips
     this.AllCountriesClicked();
+
   }
 
   //returns the form array

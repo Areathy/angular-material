@@ -122,30 +122,32 @@
             <mat-form-field class="w-100" color="primary">
                 <mat-label>Period of Study:</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate type="text" matInput formControlName="studyPeriodStart" />
-                  <input matEndDate type="text" matInput formControlName="studyPeriodEnd" />
+                    <input matStartDate type="text" matInput formControlName="studyPeriodStart" />
+                    <input matEndDate type="text" matInput formControlName="studyPeriodEnd" />
                 </mat-date-range-input>
-        
+
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        
+
                 <mat-date-range-picker #picker></mat-date-range-picker>
-              </mat-form-field>
+            </mat-form-field>
 
             <!-- chips -->
             <div class="mb mt">
                 <div>
-                <mat-label>Banks:</mat-label>
+                    <mat-label>Banks:</mat-label>
                 </div>
                 <mat-chip-list>
-                <mat-chip color="accent" selectable [selected]="All" (click)="AllCountriesClicked()">All Countries</mat-chip>
+                    <mat-chip color="accent" selectable [selected]="All" (click)="AllCountriesClicked()">All Countries
+                    </mat-chip>
 
-                <mat-chip color="accent" selectable [selected]="UK" (click)="UKClicked()">UK</mat-chip>
+                    <mat-chip color="accent" selectable [selected]="UK" (click)="UKClicked()">UK</mat-chip>
 
-                <mat-chip color="accent" selectable [selected]="USA" (click)="USAClicked()">USA</mat-chip>
+                    <mat-chip color="accent" selectable [selected]="USA" (click)="USAClicked()">USA</mat-chip>
                 </mat-chip-list>
 
                 <ul>
-                <li *ngFor="let bank of banks">{{bank.bankName}}, &nbsp;<small class="grey">{{bank.countryName}}</small></li>
+                    <li *ngFor="let bank of banks">{{bank.bankName}}, &nbsp;<small
+                            class="grey">{{bank.countryName}}</small></li>
                 </ul>
             </div>
 
@@ -156,11 +158,11 @@
     <div class="mb mt">
         <mat-label>Expertise Level:</mat-label>
         <mat-button-toggle-group formControlName="expertiseLevel">
-        <mat-button-toggle value="Beginner">Beginner</mat-button-toggle>
-        <mat-button-toggle value="Intermediate">Intermediate</mat-button-toggle>
-        <mat-button-toggle value="Senior">Senior</mat-button-toggle>
-        <mat-button-toggle value="Professional">Professional</mat-button-toggle>
-        <mat-button-toggle value="Expert">Expert</mat-button-toggle>
+            <mat-button-toggle value="Beginner">Beginner</mat-button-toggle>
+            <mat-button-toggle value="Intermediate">Intermediate</mat-button-toggle>
+            <mat-button-toggle value="Senior">Senior</mat-button-toggle>
+            <mat-button-toggle value="Professional">Professional</mat-button-toggle>
+            <mat-button-toggle value="Expert">Expert</mat-button-toggle>
         </mat-button-toggle-group>
     </div>
 
@@ -173,10 +175,10 @@
 
     <div>
         <mat-chip-list>
-          <mat-chip color="primary" selected (click)="onOKClick()">OK</mat-chip>
-          <mat-chip color="warn" selected (click)="onCancelClick()">Cancel</mat-chip>
+            <mat-chip color="primary" selected (click)="onOKClick()">OK</mat-chip>
+            <mat-chip color="warn" selected (click)="onCancelClick()">Cancel</mat-chip>
         </mat-chip-list>
-    </div>    
+    </div>
 
     <div>
         {{formGroup.value | json}}
